@@ -1,0 +1,513 @@
+:root {
+    /* Kleurenpalet voor gradient en accenten */
+    --gradient-color-1: #E7556E;
+    --gradient-color-2: #465DF1;
+    --gradient-color-3: #58B99D;
+
+    /* Andere UI kleuren */
+    --navbar-bg-color: rgba(0, 0, 0, 0.75);
+    /* Donkere navbar  */
+    --navbar-blur: 6px;
+    /* Blur effect voor navbar */
+    --link-hover-color: var(--gradient-color-3);
+    /* Kleur voor actieve/hover links in nav */
+    --text-color-dark: #333;
+    /* Standaard donkere tekstkleur */
+    --text-color-light: #f8f9fa;
+    /* Lichte tekstkleur */
+    --content-bg-color: rgba(255, 255, 255, 0.92);
+    /* Lichte achtergrond voor content blokken */
+    --card-border-color: #dee2e6;
+    /* Subtiele border voor kaarten */
+    --footer-bg-color: #212529;
+    /* Donkere footer achtergrond */
+
+    /* Layout variabelen */
+    --navbar-height: 56px;
+    /* Hoogte van de vaste navbar */
+    --content-border-radius: 10px;
+    /* Afronding voor content blokken */
+    --card-border-radius: 0.5rem;
+    /* Afronding voor kaarten */
+}
+
+/* Basis HTML en Body setup */
+html {
+    height: 100%;
+    /* Zorgt dat HTML de volledige hoogte inneemt */
+}
+
+body {
+    padding-top: var(--navbar-height);
+    /* Ruimte voor fixed navbar */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Modern, leesbaar lettertype */
+    color: var(--text-color-dark);
+    /* Flexbox layout om footer onderaan te forceren */
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    /* Body neemt minstens volledige viewport hoogte in */
+
+    /* Geanimeerde gradient achtergrond */
+    background: linear-gradient(-45deg, var(--gradient-color-1), var(--gradient-color-2), var(--gradient-color-3), var(--gradient-color-2));
+    background-size: 400% 400%;
+    animation: gradientBackgroundAnimation 18s ease infinite;
+}
+
+/* Keyframes voor de achtergrond animatie */
+@keyframes gradientBackgroundAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* --- Component Styling --- */
+
+/* Navigatiebalk */
+.navbar {
+    background-color: var(--navbar-bg-color);
+    backdrop-filter: blur(var(--navbar-blur));
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    /* Semi-bold */
+}
+
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.nav-link {
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: color 0.2s ease, transform 0.2s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.navbar-nav .nav-link.active {
+    /* Specificer voor active link */
+    color: var(--link-hover-color) !important;
+    transform: translateY(-2px);
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/* Hoofd content sectie subpagina's*/
+main.page-content {
+    flex-grow: 1;
+    /* Vult ruimte tussen navbar en footer */
+    background-color: var(--content-bg-color);
+    border-radius: var(--content-border-radius);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem 2.5rem;
+    /* Meer padding */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Home Sectie volledige scherm */
+#home {
+    background: none;
+    /* Achtergrond komt van body */
+    color: var(--text-color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    /* Vult beschikbare ruimte */
+    min-height: calc(100vh - var(--navbar-height));
+    /* Zorgt voor volledige hoogte na navbar */
+}
+
+#home h1,
+#home p {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+#home .btn {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#home .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Contact Knoppen */
+.contact-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    text-align: left;
+    /* Icoon links, tekst ernaast */
+    display: flex;
+    align-items: center;
+}
+
+.contact-button .small {
+    margin-left: auto;
+    /* Plaatst e-mail/nummer naar rechts */
+    opacity: 0.8;
+}
+
+
+/* Knoppen voor Sociale Media */
+.btn-social {
+    padding: 0.6rem 0.9rem;
+    font-size: 1.3rem;
+    /* Vergroter icoon */
+    border-radius: 50%;
+    /* Rond */
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-social:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover kleuren voor social buttons */
+.btn-outline-primary.btn-social:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.btn-outline-dark.btn-social:hover {
+    background-color: #212529;
+    color: white;
+}
+
+
+/* Project Kaarten Styling voor projecten paginas */
+.project-card {
+    background-color: white;
+    /* Witte achtergrond voor project kaarten */
+    transition: transform .25s ease-in-out, box-shadow .25s ease-in-out;
+    border: 1px solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    /* Zorgt dat afbeelding binnen border-radius blijft */
+    display: flex;
+    /* Nodig voor flex-column in card-body */
+    flex-direction: column;
+    /* Zorgt dat body en footer onder elkaar staan */
+    height: 100%;
+    /* Belangrijk i.c.m. row>div.col */
+}
+
+.project-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.project-card .card-img-top {
+    height: 200px;
+    /* Vaste hoogte voor afbeelding */
+    object-fit: cover;
+    /* Filteren van afbelding */
+    border-bottom: 1px solid var(--card-border-color);
+    /* Lijn onder afbeelding */
+}
+
+.project-card .card-body {
+    padding: 1.25rem;
+    display: flex;
+    /* Maakt flexbox mogelijk */
+    flex-direction: column;
+    /* Elementen onder elkaar */
+    flex-grow: 1;
+    /* Zorgt dat body de resterende ruimte inneemt */
+}
+
+.project-card .card-title {
+    margin-bottom: 0.75rem;
+}
+
+.project-card .card-text {
+    flex-grow: 1;
+    /* Zorgt dat tekst de ruimte vult tot de knop */
+    margin-bottom: 1rem;
+}
+
+.project-card .btn {
+    margin-top: auto;
+    /* Plaatst de knop naar beneden */
+    width: 100%;
+    /* Knop volledige breedte */
+    padding: 0.6rem;
+}
+
+/* Weer & Netwerk Kaarten */
+.info-card {
+    background-color: white;
+    border: 1px solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    /* Zorgt dat kaarten gelijke hoogte hebben */
+}
+
+.info-card .card-header {
+    background-color: #f8f9fa;
+    /* Lichte header */
+    border-bottom: 1px solid var(--card-border-color);
+    font-weight: 600;
+}
+
+.info-card .card-body p {
+    margin-bottom: 0.8rem;
+    /* Meer ruimte tussen regels */
+    display: flex;
+    /* Voor uitlijnen icoon en tekst */
+    align-items: center;
+}
+
+.info-card .card-body i {
+    color: var(--gradient-color-2);
+    /* Blauwe iconen */
+    width: 24px;
+    /* Vaste breedte voor uitlijning */
+    text-align: center;
+    margin-right: 0.75rem;
+    /* Ruimte tussen icoon en tekst */
+    font-size: 1.1rem;
+}
+
+.info-card .card-body strong {
+    margin-right: 0.5rem;
+    /* Ruimte na de 'label' */
+}
+
+.info-card .card-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid var(--card-border-color);
+}
+
+
+/* Profiel Foto Animatie */
+.profile-picture-wrapper {
+    display: inline-block;
+    padding: 7px;
+    /* Padding creëert de rand */
+    border-radius: 50%;
+    max-width: 300px;
+    /* Maximale grootte aanpassen */
+    background: linear-gradient(-45deg, var(--gradient-color-1), var(--gradient-color-2), var(--gradient-color-3), var(--gradient-color-2));
+    background-size: 400% 400%;
+    animation: gradientBackgroundAnimation 18s ease infinite;
+    /* Hergebruik animatie */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture-wrapper img {
+    display: block;
+    /* Voorkomt extra ruimte onder de afbeelding */
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+    border: 3px solid white;
+}
+
+/* Typing Animatie in Navbar */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 16ch;
+    }
+
+    /* 16 karakters */
+}
+
+@keyframes blink-caret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .1em solid var(--text-color-light);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    width: 16ch;
+    animation:
+        typing 2s steps(16, end) infinite alternate-reverse,
+        blink-caret 0.75s step-end infinite;
+    /* Oneindig voor en naar achter */
+    vertical-align: middle;
+    /* Betere uitlijning */
+    margin-left: 5px;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: var(--footer-bg-color);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 1.5rem 0;
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: var(--content-border-radius);
+    border: none;
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid var(--card-border-color);
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.modal-body img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    /* Ruimte onder afbeeldingen */
+    border-radius: 0.3rem;
+    /* Lichte afronding */
+}
+
+.modal-body h6 {
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--gradient-color-2);
+    /* Blauw accent */
+}
+
+.modal-body ul {
+    padding-left: 1.2rem;
+    /* Inspringen lijst */
+}
+
+.modal-body li {
+    margin-bottom: 0.3rem;
+}
+
+
+/* Responsive Aanpassingen */
+@media (max-width: 991.98px) {
+
+    body {
+        padding-top: var(--navbar-height);
+        /* Blijft nodig voor fixed-top */
+    }
+
+    /* Gecentreerde navigatie-items in uitgeklapte navbar */
+    .navbar-nav {
+        background-color: rgba(30, 30, 40, 0.9);
+        border-radius: 8px;
+        padding: 10px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .nav-link {
+        padding: 10px 15px;
+        display: block;
+        /* Zorgt dat links volledige breedte innemen */
+    }
+
+    .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        transform: none;
+        /* Geen Y-translatie op mobiel */
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+    }
+
+    main.page-content {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 0;
+        /* Geen ronde hoeken op mobiel voor content */
+        padding: 1.5rem;
+    }
+
+    .contact-form-container {
+        max-width: 100%;
+        /* Volledige breedte op mobiel */
+    }
+
+    .contact-button .small {
+        display: block;
+        /* E-mail/nummer onder de hoofdtekst */
+        margin-left: 0;
+        text-align: center;
+        margin-top: 0.25rem;
+    }
+
+    #home {
+        padding: 0 1rem;
+        /* Voorkom dat tekst rand raakt */
+    }
+
+    #home h1 {
+        font-size: 2.5rem;
+        /* Kleiner op mobiel */
+    }
+
+    #home .lead {
+        font-size: 1.1rem;
+    }
+
+    #home .btn {
+        display: block;
+        /* Knoppen onder elkaar */
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 300px;
+        /* Maximale breedte knoppen */
+        margin-bottom: 0.75rem;
+        /* Ruimte tussen knoppen */
+    }
+
+    #home .btn:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Profiel foto kleiner op mobiel */
+    .profile-picture-wrapper {
+        max-width: 250px;
+        padding: 5px;
+    }
+}
