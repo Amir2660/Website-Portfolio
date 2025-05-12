@@ -1,0 +1,23 @@
+processor overblast door iframe omdat deze direct werden geladen ook al waren ze niet op het scherm zichtbaar 
+deze opgelost door loading="lazy" nu worden iframe pas geladen door aanvraag 
+fout gemaakt lazy = als laatste deel laden 
+
+
+
+
+GPU overblast
+Orzak backgrand en animatie + veel groote fotos tegelijk
+oplossing 
+css file vrandering en anpassing
+jpg en png file converteren naar webp file 
+voordelen:
+Snellere laadtijd van je website.
+Minder dataverbruik voor gebruikers.
+Minder werk voor browser dus minder CPU/GPU-belasting 
+Webpagina suppeler laad
+
+
+
+too doo 
+A11Y	Toegankelijkheid	Zorgt dat iedereen je site kan gebruiken
+SEO	Zoekmachineoptimalisatie	Zorgt dat meer mensen je site vinden via Google
