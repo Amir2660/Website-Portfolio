@@ -1,5 +1,5 @@
 :root {
-    /* Kleurenpalet voor gradient en accenten */
+    /* Kleurenpalet voor achtergrond */
     --gradient-color-1: #E7556E;
     --gradient-color-2: #465DF1;
     --gradient-color-3: #58B99D;
@@ -41,16 +41,17 @@ body {
     padding-top: var(--navbar-height);
     /* Ruimte voor fixed navbar */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Modern, leesbaar lettertype */
+    /* lettertype */
     color: var(--text-color-dark);
     /* Flexbox layout om footer onderaan te forceren */
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    /* Body neemt minstens volledige viewport hoogte in */
+    /* Body neemt volledige viewport hoogte in */
 
     /* Geanimeerde gradient achtergrond */
-    background: linear-gradient(-45deg, var(--gradient-color-1), var(--gradient-color-2), var(--gradient-color-3), var(--gradient-color-2));
+    background: linear-gradient(-45deg, var(--gradient-color-1),
+            var(--gradient-color-2), var(--gradient-color-3), var(--gradient-color-2));
     background-size: 400% 400%;
     animation: gradientBackgroundAnimation 18s ease infinite;
 }
@@ -169,11 +170,6 @@ main.page-content {
     align-items: center;
 }
 
-.contact-button .small {
-    margin-left: auto;
-    /* Plaatst e-mail/nummer naar rechts */
-    opacity: 0.8;
-}
 
 
 /* Knoppen voor Sociale Media */
@@ -191,6 +187,7 @@ main.page-content {
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
+/* Animatie Knoppen voor Sociale Media */
 .btn-social:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -225,6 +222,7 @@ main.page-content {
     /* Belangrijk i.c.m. row>div.col */
 }
 
+/* Project Kaarten animatie */
 .project-card:hover {
     transform: translateY(-6px) scale(1.02);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
@@ -235,7 +233,7 @@ main.page-content {
     /* Vaste hoogte voor afbeelding */
     object-fit: cover;
     /* Filteren van afbelding */
-    border-bottom: 1px solid var(--card-border-color);
+    border-bottom: 5px solid var(--card-border-color);
     /* Lijn onder afbeelding */
 }
 
@@ -325,13 +323,9 @@ main.page-content {
     background: linear-gradient(-45deg, var(--gradient-color-1), var(--gradient-color-2), var(--gradient-color-3), var(--gradient-color-2));
     background-size: 400% 400%;
     animation: gradientBackgroundAnimation 18s ease infinite;
-    /* Hergebruik animatie */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .profile-picture-wrapper img {
-    display: block;
-    /* Voorkomt extra ruimte onder de afbeelding */
     border-radius: 50%;
     max-width: 100%;
     height: auto;
@@ -359,18 +353,13 @@ main.page-content {
 .typing-effect {
     display: inline-block;
     overflow: hidden;
-    white-space: nowrap;
-    border-right: .1em solid var(--text-color-light);
     font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
-    width: 16ch;
     animation:
         typing 2s steps(16, end) infinite alternate-reverse,
         blink-caret 0.75s step-end infinite;
     /* Oneindig voor en naar achter */
     vertical-align: middle;
-    /* Betere uitlijning */
-    margin-left: 5px;
 }
 
 
@@ -509,4 +498,11 @@ footer {
         max-width: 250px;
         padding: 5px;
     }
+}
+
+/* Kaart voor leafletjs */
+#map {
+    height: 350px;
+    width: 100%;
+    /* volledige breedte */
 }
