@@ -1,17 +1,23 @@
 processor overblast door iframe omdat deze direct werden geladen ook al waren ze niet op het scherm zichtbaar 
 deze opgelost door loading="lazy" nu worden iframe pas geladen door aanvraag 
-fout gemaakt lazy = als laatste deel laden 
+lazy = als laatste deel laden 
 
 
 
 
-GPU overblast
-Orzak backgrand en animatie + veel groote fotos tegelijk
+GPU hoge verbruik
+Orzak backgrand en animatie + veel groote fotos tegelijk met hooge kwaliteit
 oplossing 
 css file vrandering en anpassing
 jpg en png file converteren naar webp file 
+
+Processor hoge verbruik
+te veel inhoud in een keer word geladen 
+oplossing 
+webp file loading="lazy" en ook iframes loading="lazy"
+
 voordelen:
-Snellere laadtijd van je website.
+Snellere laadtijd van website.
 Minder dataverbruik voor gebruikers.
 Minder werk voor browser dus minder CPU/GPU-belasting 
 Webpagina suppeler laad
@@ -19,5 +25,13 @@ Webpagina suppeler laad
 
 
 too doo 
-A11Y	Toegankelijkheid	Zorgt dat iedereen je site kan gebruiken
-SEO	Zoekmachineoptimalisatie	Zorgt dat meer mensen je site vinden via Google
+A11Y	Toegankelijkheid	Zorgt dat iedereen site kan gebruiken
+SEO	Zoekmachineoptimalisatie	Zorgt dat meer mensen site vinden via Google
+
+
+
+test fase:
+website getets met IOS = ok (iframe van wokwi niet suppel en stabiel) oplossing voor de toekomst aparte pagina hier voor maken en frame groter 
+website getest met android = ok (iframe van wokwi niet suppel en stabiel) oplossing voor de toekomst aparte pagina hier voor maken en frame groter 
+website getest op chrome en internet explore = ok 
+website getest op overblasting van hitting van processor CPU en GPU = OK (gedurende 1u actief)
